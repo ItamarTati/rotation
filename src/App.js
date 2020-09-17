@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './App.css';
 
 function encriptMessage(string, rotation){
   let encriptedMessage = ''
@@ -32,11 +33,11 @@ export default () => {
   const [rotation, setRotation] = useState(13)
 
   return (
-  <div>
-    <p>{encriptMessage(message, rotation)}</p>
-    <form>
-    <textarea value={message} onChange={e => setMessage(e.target.value)} />
-      <select onChange={e => setRotation(parseInt(e.target.value))}>
+  <div className="App">
+    <p className="encript-message">{encriptMessage(message, rotation)}</p>
+    <form className="form">
+    <input className="text-input" value={message} onChange={e => setMessage(e.target.value)} />
+      <select className="options" onChange={e => setRotation(parseInt(e.target.value))}>
         <option value="0">No Rotation</option>
         <option value="1">ROT-1</option>
         <option value="2">ROT-2</option>
