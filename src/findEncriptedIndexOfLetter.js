@@ -1,4 +1,4 @@
-module.exports = function findEncriptedIndexOfLetter(character, rotationNumber){
+export default function findEncriptedIndexOfLetter(character, rotationNumber){
     let isCapital = false 
     if (/[^A-Za-z]/.test(character)) return character
     if (character === character.toUpperCase()){
