@@ -1,32 +1,7 @@
 import React, { useState } from "react";
 import './App.css';
+import encriptMessage from './encriptMessage'
 
-function encriptMessage(string, rotation){
-  let encriptedMessage = ''
-  for(let index = 0; index < string.length; index++){
-      let letter = string[index]
-      let rotatedLetter = findEncriptedIndexOfLetter(letter, rotation)
-      encriptedMessage += rotatedLetter
-  }
-  return encriptedMessage
-}
-
-function findEncriptedIndexOfLetter(character, rotationNumber){
-  let isCapital = false 
-  if (/[^A-Za-z]/.test(character)) return character
-  if (character === character.toUpperCase()){
-      isCapital = true
-      character = character.toLowerCase()
-  } 
-  let alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-  for(let index = 0; index < alphabet.length; index++){
-      let letter = alphabet[index]
-      if (letter === character){
-          if(index + rotationNumber > 25) rotationNumber = rotationNumber - 26
-          return isCapital ? alphabet[index + rotationNumber].toUpperCase() : alphabet[index + rotationNumber]
-      }
-  }
-}
 
 export default () => {
   const [message, setMessage] = useState('')
@@ -34,7 +9,8 @@ export default () => {
 
   return (
   <div className="App">
-    <p className="encript-message">{encriptMessage(message, rotation)}</p>
+    <h3 className="header">Welcome to my Encripting App, type any message and the app will Encript your message by rotating the letters of the Alphabet</h3>
+    <p className="encript-message">Encripted Message: <span className="message">{encriptMessage(message, rotation)}</span></p>
     <form className="form">
     <input className="text-input" value={message} onChange={e => setMessage(e.target.value)} />
       <select className="options" onChange={e => setRotation(parseInt(e.target.value))}>
