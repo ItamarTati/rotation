@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './App.css';
 import encriptMessage from './encriptMessage'
+import TextField from '@material-ui/core/TextField';
 
 
 export default () => {
@@ -12,7 +13,7 @@ export default () => {
     <h3 className="header">Welcome to my Encripting App, type any message and the app will Encript your message by rotating the letters of the Alphabet</h3>
     <p className="encript-message">Encripted Message: <span className="message">{encriptMessage(message, rotation)}</span></p>
     <form className="form">
-    <input className="text-input" value={message} onChange={e => setMessage(e.target.value)} />
+    <TextField id="outlined-basic" label="Message" value={message} onChange={e => setMessage(e.target.value)}/>
       <select className="options" onChange={e => setRotation(parseInt(e.target.value))}>
         <option value="0">No Rotation</option>
         <option value="1">ROT-1</option>
