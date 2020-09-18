@@ -12,8 +12,8 @@ export default () => {
 
   return (
   <div className="App">
-    <h3 className="header">Welcome to my Encripting App, type any message and the app will Encript your message by rotating the letters of the Alphabet</h3>
-    <p className="encript-message">Encripted Message: <span className="message">{encriptMessage(message, rotation)}</span></p>
+    <h3 className="header">Welcome to my Encrypting App, type any message and the app will Encrypt your message by rotating the letters of the Alphabet</h3>
+    <p className="encript-message">Encrypted Message: <span className="message">{encriptMessage(message, rotation)}</span></p>
     <form className="form">
     <TextField id="outlined-basic" label="Message" value={message} onChange={e => setMessage(e.target.value)}/>
     <TextField
